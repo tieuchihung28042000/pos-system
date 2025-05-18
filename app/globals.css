@@ -1,0 +1,476 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 214 89% 52%; /* Facebook blue */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 214 89% 52%; /* Facebook blue */
+    --radius: 0.5rem;
+    --success: 142.1 76.2% 36.3%;
+    --success-foreground: 355.7 100% 97.3%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 48 96% 89%;
+
+    /* Sidebar colors */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222.2 84% 4.9%;
+    --sidebar-primary: 214 89% 52%; /* Facebook blue */
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 214 89% 95%;
+    --sidebar-accent-foreground: 214 89% 52%; /* Facebook blue */
+    --sidebar-border: 214.3 31.8% 91.4%;
+    --sidebar-ring: 214 89% 52%; /* Facebook blue */
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 214 89% 52%; /* Facebook blue */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 214 89% 52%; /* Facebook blue */
+    --success: 142.1 70% 45%;
+    --success-foreground: 210 40% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 210 40% 98%;
+
+    /* Sidebar colors */
+    --sidebar-background: 222.2 84% 4.9%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 214 89% 52%; /* Facebook blue */
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217.2 32.6% 17.5%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217.2 32.6% 17.5%;
+    --sidebar-ring: 214 89% 52%; /* Facebook blue */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .sidebar-icon {
+    @apply h-5 w-5;
+  }
+
+  .menu-card {
+    @apply overflow-hidden rounded-xl transition-all hover:shadow-md;
+  }
+
+  .menu-image {
+    @apply h-24 w-full object-cover;
+  }
+
+  .menu-title {
+    @apply text-sm font-medium;
+  }
+
+  .menu-price {
+    @apply text-sm font-semibold text-primary;
+  }
+
+  .menu-rating {
+    @apply flex items-center text-xs text-muted-foreground;
+  }
+
+  .promo-card {
+    @apply flex h-32 flex-col justify-between rounded-2xl p-4 text-white;
+  }
+
+  .cart-item {
+    @apply flex items-center justify-between rounded-lg p-2;
+  }
+
+  .cart-item-image {
+    @apply h-12 w-12 rounded-lg object-cover;
+  }
+
+  .cart-item-title {
+    @apply text-sm font-medium;
+  }
+
+  .cart-item-price {
+    @apply text-sm font-semibold;
+  }
+
+  .cart-item-quantity {
+    @apply flex items-center gap-2 text-sm;
+  }
+
+  .quantity-button {
+    @apply flex h-6 w-6 items-center justify-center rounded-full bg-secondary text-xs;
+  }
+
+  .dashboard-card {
+    @apply rounded-xl bg-card p-4 shadow-sm text-card-foreground;
+  }
+
+  .dashboard-stat {
+    @apply text-2xl font-bold;
+  }
+
+  .dashboard-label {
+    @apply text-sm text-muted-foreground;
+  }
+
+  .table-container {
+    @apply rounded-xl bg-card p-4 shadow-sm text-card-foreground;
+  }
+
+  .status-badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+
+  .status-badge-success {
+    @apply bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100;
+  }
+
+  .status-badge-warning {
+    @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-100;
+  }
+
+  .status-badge-danger {
+    @apply bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100;
+  }
+}
+
+/* Thêm hiệu ứng chuyển động mượt mà */
+* {
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease, color 0.2s
+    ease;
+}
+
+/* Hiệu ứng hover cho các card */
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Hiệu ứng cho các button */
+.button {
+  transition: all 0.2s ease;
+}
+
+.button:active {
+  transform: scale(0.97);
+}
+
+/* Hiệu ứng ripple cho các button */
+.button-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.button-ripple:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform 0.5s, opacity 1s;
+}
+
+.button-ripple:active:after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+
+/* Hiệu ứng fade-in cho các phần tử khi tải trang */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+.fade-in-delay-1 {
+  animation: fadeIn 0.3s ease-in-out 0.1s forwards;
+  opacity: 0;
+}
+
+.fade-in-delay-2 {
+  animation: fadeIn 0.3s ease-in-out 0.2s forwards;
+  opacity: 0;
+}
+
+.fade-in-delay-3 {
+  animation: fadeIn 0.3s ease-in-out 0.3s forwards;
+  opacity: 0;
+}
+
+/* Dark mode specific styles */
+.dark .card {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}
+
+.dark .button-ripple:after {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.2) 10%, transparent 10.01%);
+}
+
+/* Fix for hardcoded white backgrounds */
+.dark .bg-white {
+  @apply bg-card;
+}
+
+/* Fix for tables */
+.dark table {
+  @apply bg-card text-card-foreground;
+}
+
+.dark th,
+.dark td {
+  @apply border-border text-card-foreground;
+}
+
+/* Fix for inputs */
+.dark input,
+.dark select,
+.dark textarea {
+  @apply bg-input text-foreground border-border;
+}
+
+/* Fix for modals and dialogs */
+.dark [role="dialog"] {
+  @apply bg-background text-foreground;
+}
+
+/* Fix for dropdown menus */
+.dark [role="menu"] {
+  @apply bg-popover text-popover-foreground;
+}
+
+/* Fix for tooltips */
+.dark [role="tooltip"] {
+  @apply bg-popover text-popover-foreground;
+}
+
+/* Fix for charts and graphs */
+.dark .recharts-surface {
+  @apply text-foreground;
+}
+
+.dark .recharts-cartesian-grid line {
+  @apply stroke-border;
+}
+
+.dark .recharts-cartesian-axis-line {
+  @apply stroke-border;
+}
+
+.dark .recharts-legend-item-text {
+  @apply text-foreground;
+}
+
+/* Fix for hardcoded shadows */
+.dark .shadow-sm,
+.dark .shadow,
+.dark .shadow-md,
+.dark .shadow-lg,
+.dark .shadow-xl {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark mode fixes for specific components */
+
+/* Fix for dashboard cards */
+.dark .dashboard-card {
+  background-color: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+  border-color: hsl(var(--border));
+}
+
+/* Fix for tables */
+.dark .table-container {
+  background-color: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+}
+
+/* Fix for any hardcoded white backgrounds */
+.dark [class*="bg-white"] {
+  background-color: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+}
+
+/* Fix for any hardcoded text colors */
+.dark [class*="text-gray-"],
+.dark [class*="text-slate-"],
+.dark [class*="text-zinc-"] {
+  color: hsl(var(--foreground));
+}
+
+/* Fix for inputs with hardcoded backgrounds */
+.dark input[type="text"],
+.dark input[type="email"],
+.dark input[type="password"],
+.dark input[type="number"],
+.dark input[type="search"],
+.dark input[type="tel"],
+.dark input[type="url"],
+.dark input[type="date"],
+.dark input[type="datetime-local"],
+.dark input[type="month"],
+.dark input[type="week"],
+.dark input[type="time"],
+.dark input[type="color"],
+.dark textarea,
+.dark select {
+  background-color: hsl(var(--input));
+  color: hsl(var(--foreground));
+  border-color: hsl(var(--border));
+}
+
+/* Fix for buttons with hardcoded backgrounds */
+.dark
+  button:not([class*="bg-primary"]):not([class*="bg-destructive"]):not([class*="bg-secondary"]):not(
+    [class*="bg-accent"]
+  ) {
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
+}
+
+/* Fix for charts and visualizations */
+.dark .recharts-text {
+  fill: hsl(var(--foreground));
+}
+
+.dark .recharts-cartesian-grid-horizontal line,
+.dark .recharts-cartesian-grid-vertical line {
+  stroke: hsl(var(--border));
+}
+
+.dark .recharts-tooltip-wrapper {
+  background-color: hsl(var(--popover));
+  color: hsl(var(--popover-foreground));
+  border-color: hsl(var(--border));
+}
+
+/* Remove transitions for theme changes */
+* {
+  transition: none !important;
+}
+
+/* If you still want transitions for other interactions but not for theme changes,
+   you can re-enable specific transitions as needed */
+button:hover,
+.animate-specific {
+  transition: transform 0.2s, opacity 0.2s !important;
+}
+
+/* POS specific dark mode fixes */
+.dark .menu-card {
+  @apply bg-card text-card-foreground border-border;
+}
+
+.dark .promo-card {
+  @apply border-border;
+}
+
+.dark .cart-item {
+  @apply border-border bg-card hover:bg-accent;
+}
+
+.dark .menu-title,
+.dark .menu-price {
+  @apply text-card-foreground;
+}
+
+.dark .menu-rating {
+  @apply text-muted-foreground;
+}
+
+/* Fix for TabsList in dark mode */
+.dark [role="tablist"] {
+  @apply bg-muted border-border;
+}
+
+.dark [role="tab"] {
+  @apply data-[state=active]:bg-background data-[state=active]:text-foreground;
+}
+
+/* Fix for receipt in dark mode */
+.dark .border {
+  @apply border-border;
+}
+
+/* Fix for any remaining hardcoded colors */
+.dark .bg-gray-50,
+.dark .bg-gray-100,
+.dark .bg-gray-200 {
+  @apply bg-muted;
+}
+
+.dark .text-gray-500,
+.dark .text-gray-600,
+.dark .text-gray-700 {
+  @apply text-muted-foreground;
+}
+
+.dark .text-green-500,
+.dark .text-green-600 {
+  @apply text-success;
+}
+
+.dark .text-red-500,
+.dark .text-red-600 {
+  @apply text-destructive;
+}
